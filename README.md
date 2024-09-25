@@ -1,5 +1,7 @@
 # Using Input Cardinalities To Improve Set Intersection Estimation
 
+![image info](./dist.png)
+
 ## Abstract 
 
 A fundamental problem in data sketches is accurately estimating the cardinality of the union or intersection of sampled sets. Sampling bias in the inputs produces bias in the output. Ting has proposed combining component estimators to compensate for each source of bias, using partial information about cardinality of each component, and weighting each component separately.
@@ -27,10 +29,17 @@ To estimate C for the intersection or union of two set sketches, we will pursue 
 
 Given a set $S$ of integers drawn from a range $\{1..N\}$, we can represent it as a vector $\vec S = (s_i) \in \mathbb{R}^N$ st $ s_i = 1 \iff i \in S $ and 0 otherwise. 
 
-This embedding has the property that $\langle \vec S,\vec S \rangle = \vert S \vert$ and $\langle \vec S, \vec T \rangle = \vert S \cap T \vert$.
+This embedding has the property that $\langle \vec S,\vec S \rangle = \vert S \vert$ and $\langle \vec S, 
+\vec T \rangle = \vert S \cap T \vert$.
 
 
 ## Weighted Averaging
+
+<figure>
+  <img src="histograms.png" alt="my alt text"/>
+  <figcaption>top row: hash value distribution in each set, showing the intersection (green) and difference(blue/yellow) in each set before and after weighting. bottom: differences only</figcaption>
+</figure>
+
 
 Weighted averaging allows us to reduce the "signal-to-noise" ratio of the average vs. either input, where the "signal" is the intersection, and the "noise" are two uncorrelated difference vectors.
 
