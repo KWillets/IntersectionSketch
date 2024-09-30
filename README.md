@@ -65,9 +65,9 @@ Revisiting our vector embedding,
 
 To estimate the ratio between the intersection true cardinality and the sampled version, we estimate each with the weighted averaging method shown above:
 
-$ C = \frac{w_1 | S_1 | + w_2 | S_2 |}{w_1 \hat{N}(S_1, \theta)  + w_2 \hat{N}(S_2, \theta)}$
+$$ C = \frac{w_1 | S_1 | + w_2 | S_2 |}{w_1 \hat{N}(S_1, \theta)  + w_2 \hat{N}(S_2, \theta)}$$
 
 using weights based on the difference between the cardinality and the approximate intersection size:
 
-$ w_i = 1/(|S_i| - \hat{N}(|S_1 \cap S_2|, \theta)$
+$$ w_i = 1/(|S_i| - \hat{N}(|S_1 \cap S_2|, \theta) $$
 
